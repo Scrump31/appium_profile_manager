@@ -2,19 +2,19 @@ import { ChainablePromiseElement } from 'webdriverio'
 import Page from './page'
 
 class LoginPage extends Page {
-  public get inputUsername(): ChainablePromiseElement<
+  private get inputUsername(): ChainablePromiseElement<
     Promise<WebdriverIO.Element>
   > {
     return this._getByResourceID('name')
   }
 
-  public get inputPassword(): ChainablePromiseElement<
+  private get inputPassword(): ChainablePromiseElement<
     Promise<WebdriverIO.Element>
   > {
     return this._getByResourceID('password')
   }
 
-  public get btnSubmit(): ChainablePromiseElement<
+  private get btnSubmit(): ChainablePromiseElement<
     Promise<WebdriverIO.Element>
   > {
     return this._getByResourceID('login')
@@ -24,6 +24,10 @@ class LoginPage extends Page {
     await this.inputUsername.setValue(username)
     await this.inputPassword.setValue(password)
     await this.btnSubmit.click()
+  }
+
+  public async isLoginBtnDisplayed() {
+    return await this.btnSubmit.isDisplayed()
   }
 }
 

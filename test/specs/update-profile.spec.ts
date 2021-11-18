@@ -1,6 +1,14 @@
+import { loginCreds, profileInfo } from '../data/user'
 import LoginPage from '../pageObjects/login.page'
-describe('My Login application', () => {
-  it('should open login page', async () => {
-    await LoginPage.login('test user', '12345')
+import ProfilePage from '../pageObjects/profile.page'
+
+describe('Update Profile', () => {
+  it('should allow a user to save new profile information', async () => {
+    await LoginPage.login(loginCreds.username, loginCreds.password)
+    await ProfilePage.enterProfileInfo(profileInfo)
+    await ProfilePage.isBannerSavedDisplayed()
+    await ProfilePage.logout()
+
+    expect(await LoginPage.isLoginBtnDisplayed()).toBeTruthy()
   })
 })
