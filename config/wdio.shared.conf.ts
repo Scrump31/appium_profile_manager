@@ -3,6 +3,11 @@
  * If you want to know which configuration options you have then you can
  * check https://webdriver.io/docs/configurationfile
  */
+const currentDate = new Date()
+const timeStamp = `${currentDate.getDate()}-${
+  currentDate.getMonth() + 1
+}-${currentDate.getFullYear()}_${currentDate.getHours()}.${currentDate.getMinutes()}.${currentDate.getSeconds()}`
+
 export const config: WebdriverIO.Config = {
   //
   // ====================
@@ -98,7 +103,18 @@ export const config: WebdriverIO.Config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['junit', ['allure', { outputDir: 'allure-results' }]],
+  reporters: [
+    [
+      'junit',
+      {
+        outputDir: 'junit-report',
+        outputFileFormat: function () {
+          return `${timeStamp}.xml`
+        },
+      },
+    ],
+    ['allure', { outputDir: 'allure-results' }],
+  ],
   // Options to be passed to Mocha.
   mochaOpts: {
     ui: 'bdd',
