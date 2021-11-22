@@ -21,7 +21,6 @@ config.capabilities = [
     // This is `appium:` for all Appium Capabilities which can be found here
     'appium:deviceName': 'Pixel_5_API_29',
     'appium:platformVersion': '10.0',
-    'appium:orientation': 'PORTRAIT',
     'appium:automationName': 'UiAutomator2',
     // The path to the app
     'appium:app': join(process.cwd(), './apps/testProject.apk'),

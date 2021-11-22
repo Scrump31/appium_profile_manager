@@ -5,7 +5,7 @@ import { config } from './wdio.shared.conf'
 // Appium
 // ======
 //
-config.services = (config.services ? config.services : []).concat([
+config.services = [
   [
     'appium',
     {
@@ -18,7 +18,7 @@ config.services = (config.services ? config.services : []).concat([
       },
     },
   ],
-])
+]
 //
 // =====================
 // Server Configurations
