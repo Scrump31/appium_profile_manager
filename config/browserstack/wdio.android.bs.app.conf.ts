@@ -19,5 +19,10 @@ config.capabilities = [
     os_version: '11.0',
     app: process.env.BROWSERSTACK_APP_ID || 'BROWSERSTACK_APP_ID',
   },
+  {
+    device: 'Samsung Galaxy S10',
+    os_version: '9.0',
+    app: process.env.BROWSERSTACK_APP_ID || 'BROWSERSTACK_APP_ID',
+  },
 ]
 exports.config = config
