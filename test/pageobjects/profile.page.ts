@@ -66,7 +66,7 @@ class ProfilePage extends Page {
     await this.btnLogout.click()
   }
 
-  public async isBannerSavedDisplayed() {
+  public async isBannerSavedDisplayed(): Promise<boolean> {
     return await this.bannerSaved.isDisplayed()
   }
 }

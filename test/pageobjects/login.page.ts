@@ -26,7 +26,7 @@ class LoginPage extends Page {
     await this.btnSubmit.click()
   }
 
-  public async isLoginBtnDisplayed() {
+  public async isLoginBtnDisplayed(): Promise<boolean> {
     return await this.btnSubmit.isDisplayed()
   }
 }
