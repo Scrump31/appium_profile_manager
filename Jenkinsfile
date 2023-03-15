@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    nodejs "node14.18.0"
+    nodejs "node-18.18.0"
   }
 
   stages {
